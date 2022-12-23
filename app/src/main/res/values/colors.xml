@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#2196F3</color>
+    <color name="colorPrimaryDark">#03A9F4</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="focusedColor">#FFBB00</color>
+
+    <color name="forcused">
+        <?xml version="1.0" encoding="utf-8"?>
+    <selector xmlns:android="http://schemas.android.com/apk/res/android">
+        <item android:color="@color/focusedColor" android:state_focused="true"/>
+        <item android:alpha="0.87" android:color="@color/focusedColor" android:state_hovered="true"/>
+        <item android:alpha="0.12" android:color="@color/focusedColor" android:state_enabled="false"/>
+        <item android:alpha="0.38" android:color="@color/focusedColor"/>
+    </selector>
+    </color>
+</resources>
+
+

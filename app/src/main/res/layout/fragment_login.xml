@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.login.LoginFragment">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="35dp"
+        android:src="@drawable/img_logo"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_userName"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        app:boxCornerRadiusBottomEnd="22.5dp"
+        app:boxCornerRadiusBottomStart="22.5dp"
+        app:boxCornerRadiusTopEnd="22.5dp"
+        app:boxCornerRadiusTopStart="22.5dp"
+        app:boxStrokeColor="@color/focusedColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:placeholderText="@string/user_name"
+        app:startIconDrawable="@drawable/icon_user"
+        app:startIconTint="@null">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textStyle="bold"
+            android:textSize="16sp"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_password"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:boxCornerRadiusBottomEnd="22.5dp"
+        app:boxCornerRadiusBottomStart="22.5dp"
+        app:boxCornerRadiusTopEnd="22.5dp"
+        app:boxCornerRadiusTopStart="22.5dp"
+        app:boxStrokeColor="@color/focusedColor"
+        app:layout_constraintEnd_toEndOf="@+id/til_userName"
+        app:layout_constraintStart_toStartOf="@+id/til_userName"
+        app:layout_constraintTop_toBottomOf="@+id/til_userName"
+        app:placeholderText="@string/password"
+        app:startIconDrawable="@drawable/icon_password"
+        app:startIconTint="@null">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textPassword"
+            android:textSize="16sp"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/your_text_reference"
+        android:textColor="@color/text_black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/til_password"
+        app:layout_constraintTop_toBottomOf="@+id/til_password" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/text_forget"
+        android:textColor="@color/text_black"
+        android:textSize="14sp"
+
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/til_password"
+        app:layout_constraintTop_toBottomOf="@+id/til_password" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="82dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/custom_bg_btn_login"
+        android:padding="8dp"
+        android:text="@string/text_btn_login"
+        android:textSize="16sp"
+        app:backgroundTint="@null"
+        app:cornerRadius="22.5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:gravity="center_horizontal"
+        android:text="@string/text_login_with"
+        android:textColor="@color/text_black"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_login_zalo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="45dp"
+        android:backgroundTint="#D6D6D6"
+        android:text="@string/text_login_with_zalo"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textColor="@color/text_black"
+        app:cornerRadius="8dp"
+        app:icon="@drawable/ic_zalo"
+        app:iconTintMode="multiply"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_login_facbook"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#D6D6D6"
+        android:text="@string/text_login_with_fb"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textColor="@color/text_black"
+        app:cornerRadius="8dp"
+        app:icon="@drawable/ic_fb"
+        app:iconTintMode="multiply"
+        app:layout_constraintEnd_toEndOf="@+id/btn_login_zalo"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btn_login_zalo"
+        app:layout_constraintTop_toBottomOf="@+id/btn_login_zalo" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_login_apple"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#D6D6D6"
+        android:text="@string/text_login_with_apple"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textColor="@color/text_black"
+        app:cornerRadius="8dp"
+        app:icon="@drawable/ic_apple"
+        app:iconTintMode="multiply"
+        app:layout_constraintEnd_toEndOf="@+id/btn_login_facbook"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btn_login_facbook"
+        app:layout_constraintTop_toBottomOf="@+id/btn_login_facbook" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_login_google"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="#D6D6D6"
+        android:text="@string/text_login_with_google"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textColor="@color/text_black"
+        app:cornerRadius="8dp"
+        app:icon="@drawable/ic_google"
+        app:iconTintMode="multiply"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btn_login_apple"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btn_login_apple"
+        app:layout_constraintTop_toBottomOf="@+id/btn_login_apple" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
