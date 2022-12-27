@@ -24,9 +24,14 @@ class LoginViewModel @Inject constructor(val repository: Repository) :BaseViewMo
         data.value = BaseObjectResponse<LoginResponse>().loading()
 
         }.subscribe({
-                data.value = it.data?.let { it1 -> BaseObjectResponse<LoginResponse>().success(data = it1) }
+                data.value = it.data?.let { it1 ->
+                    BaseObjectResponse<LoginResponse>().success(data = it1)
+                }
+            Log.e(TAG, "loginResponse: ${it.data}", )
+
         },{
             data.value = BaseObjectResponse<LoginResponse>().error(throwable = it,true)
+            Log.e(TAG, "loginResponse: $it", )
         })
     }
 }

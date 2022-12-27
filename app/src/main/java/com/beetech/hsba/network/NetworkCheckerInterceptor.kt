@@ -18,6 +18,7 @@ class NetworkCheckerInterceptor(private val context: Context) : Interceptor {
                 .addHeader("Content-Type","application/json")
                 .addHeader("version","2.0.0")
                 .addHeader("device","1").build()
+            //nnew co token thi lưu lai trong Sharereference
             )
         } else {
             throw NoConnectivityException()
