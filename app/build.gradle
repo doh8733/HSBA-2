@@ -30,7 +30,7 @@ android {
         debug {
             //signingConfig signingConfigs.debug
             minifyEnabled false
-            buildConfigField 'String', 'BASE_URL', '"http://192.168.18.54:7500/"'
+            buildConfigField 'String', 'BASE_URL', '"http://hsba-v2.beetechdev.vn:1680/api/v1/"'
             buildConfigField("String", "API_KEY", "\"${API_KEY}\"")
         }
         release {

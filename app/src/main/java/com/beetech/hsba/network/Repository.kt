@@ -5,6 +5,7 @@ import com.beetech.hsba.base.entity.BaseObjectResponse
 import com.beetech.hsba.entity.LoginRequest
 import com.beetech.hsba.entity.LoginResponse
 import com.beetech.hsba.entity.User
+import com.beetech.hsba.entity.login.Data
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -17,11 +18,11 @@ class Repository @Inject constructor(val apiInterface: ApiInterface) {
             .observeOn(AndroidSchedulers.mainThread())
     }
 
-    fun login(username:String,password:String): Single<BaseObjectResponse<LoginResponse>> {
+    fun login(username:String,password:String): Single<BaseObjectResponse<com.beetech.hsba.entity.login.LoginResponse>> {
         val loginRequest = LoginRequest()
         loginRequest.username = username
         loginRequest.password = password
-        return apiInterface.login(loginRequest)
+        return apiInterface.loginApp(loginRequest)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
     }

@@ -48,13 +48,11 @@ class NetworkModule {
     fun provideHttpClient(context: Context): OkHttpClient {
         val loggingInterceptor = HttpLoggingInterceptor()
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
-
 //        val tokenInterceptor = TokenInterceptor()
         val networkCheckerInterceptor = NetworkCheckerInterceptor(context)
 
         return OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
-//            .addInterceptor(tokenInterceptor)
             .addInterceptor(networkCheckerInterceptor)
             .connectTimeout(Define.DEFAULT_TIMEOUT, TimeUnit.SECONDS)
             .readTimeout(Define.DEFAULT_TIMEOUT, TimeUnit.SECONDS)

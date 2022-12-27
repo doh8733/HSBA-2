@@ -21,4 +21,7 @@ interface ApiInterface {
     @POST("/api/auth/login/customer")
     @Headers("Content-Type: application/json")
     fun login(@Body loginRequest:LoginRequest) : Single<BaseObjectResponse<LoginResponse>>
+
+    @POST("user/login")
+    fun loginApp(@Body loginRequest: LoginRequest): Single<BaseObjectResponse<com.beetech.hsba.entity.login.LoginResponse>>
 }

@@ -4,6 +4,7 @@ import androidx.fragment.app.viewModels
 import com.beetech.hsba.R
 import com.beetech.hsba.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.home_fragment.*
 
 @AndroidEntryPoint
 class HomeFragment : BaseFragment() {

@@ -23,7 +23,6 @@ class SplashFragment : BaseFragment() {
     }
 
     override fun initView() {
-
     }
 
     override fun initData() {
