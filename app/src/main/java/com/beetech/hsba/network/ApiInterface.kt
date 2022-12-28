@@ -6,6 +6,7 @@ import com.beetech.hsba.base.entity.BaseObjectResponse
 import com.beetech.hsba.entity.LoginRequest
 import com.beetech.hsba.entity.LoginResponse
 import com.beetech.hsba.entity.User
+import com.beetech.hsba.entity.login.Data
 import io.reactivex.Single
 import retrofit2.http.*
 
@@ -23,5 +24,5 @@ interface ApiInterface {
     fun login(@Body loginRequest:LoginRequest) : Single<BaseObjectResponse<LoginResponse>>
 
     @POST("user/login")
-    fun loginApp(@Body loginRequest: LoginRequest): Single<BaseObjectResponse<com.beetech.hsba.entity.login.LoginResponse>>
+    fun loginApp(@Body loginRequest: LoginRequest): Single<BaseObjectResponse<Data>>
 }

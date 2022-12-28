@@ -9,20 +9,15 @@ import com.beetech.hsba.base.BaseViewModel
 import com.beetech.hsba.base.adapter.RecyclerViewAdapter.Companion.TAG
 import com.beetech.hsba.base.entity.BaseObjectResponse
 import com.beetech.hsba.entity.login.Data
-import com.beetech.hsba.entity.login.LoginResponse
 import com.beetech.hsba.extension.ObjectResponse
 import com.beetech.hsba.network.Repository
-import com.beetech.hsba.utils.Define
 import dagger.hilt.android.lifecycle.HiltViewModel
-import io.reactivex.SingleObserver
-import io.reactivex.disposables.Disposable
 import javax.inject.Inject
-import kotlin.math.log
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(val repository: Repository, val context: Context) :
     BaseViewModel() {
-    var data: ObjectResponse<LoginResponse> = MutableLiveData()
+    var data: ObjectResponse<Data> = MutableLiveData()
 
     fun validateLogin(userName: String, password: String) {
         if (userName.isEmpty() || password.isEmpty()) {
@@ -40,24 +35,20 @@ class LoginViewModel @Inject constructor(val repository: Repository, val context
 
    private fun posLogin(userName: String, password: String) {
         repository.login(
-            username = userName, password = password).subscribe(object : SingleObserver<BaseObjectResponse<LoginResponse>>{
-            override fun onSubscribe(d: Disposable) {
-                data.value = BaseObjectResponse<LoginResponse>().loading()
-            }
-
-            override fun onSuccess(t: BaseObjectResponse<LoginResponse>) {
-//                data.value = it.data?.let { it1 ->
-//                    BaseObjectResponse<LoginResponse>().success(data = it1)
-//                    }}
-               data.value=  t.data?.let { BaseObjectResponse<LoginResponse>().success(it) }
-                Log.e(TAG, "onSuccess: $t", )
-            }
-
-            override fun onError(e: Throwable) {
-                data.postValue(BaseObjectResponse<LoginResponse>().error(e,true))
-            }
+            username = userName, password = password).doOnSubscribe {
+            data.value = BaseObjectResponse<Data>().loading()
+        }.subscribe({
+            data.value=  it.data?.let { BaseObjectResponse<Data>().success(it) }
+            Log.e(TAG, "onSuccess: ${it.data.toString()}", )
+        },{
+            data.postValue(BaseObjectResponse<Data>().error(it,true))
 
         })
+
+
+
+
+
 
 
     }
