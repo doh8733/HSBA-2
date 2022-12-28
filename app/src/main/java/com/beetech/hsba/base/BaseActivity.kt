@@ -1,6 +1,12 @@
 package com.beetech.hsba.base
 
+import android.app.Activity
+import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
+import android.view.View
+import android.view.Window
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.beetech.hsba.R
 import com.beetech.hsba.extension.toast
@@ -32,9 +38,31 @@ abstract class BaseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(layoutResId)
         viewController = ViewController(layoutId,supportFragmentManager)
+
+        //ham tranparent statusbar
+        with(window) {
+            addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+            setFlags(
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+            )
+            window.decorView.systemUiVisibility =
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+            setWindowFlag(
+                this@BaseActivity,
+                WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS,
+                false
+            )
+            window.statusBarColor = Color.TRANSPARENT
+        }
+       // lightStatusBar()
         initView()
         initData()
         initListener()
+//        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN)
+//        window?.decorView?.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+//                or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN)
+//        window.statusBarColor = Color.TRANSPARENT
     }
 
     override fun onBackPressed() {
@@ -99,6 +127,16 @@ abstract class BaseActivity : AppCompatActivity() {
         }
         return requestError
     }
+    open fun setWindowFlag(activity: Activity, bits: Int, on: Boolean) {
+        val win: Window = activity.window
+        val winParams: WindowManager.LayoutParams = win.attributes
+        if (on) {
+            winParams.flags = winParams.flags or bits
+        } else {
+            winParams.flags = winParams.flags and bits.inv()
+        }
+        win.attributes = winParams
+    }
 
 
     protected abstract val layoutResId :  Int
@@ -106,5 +144,11 @@ abstract class BaseActivity : AppCompatActivity() {
     protected abstract fun initView()
     protected abstract fun initData()
     protected abstract fun initListener()
+
+//    protected fun lightStatusBar() {
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//            window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+//        }
+//    }
 
 }

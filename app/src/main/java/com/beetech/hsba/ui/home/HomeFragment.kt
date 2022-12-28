@@ -20,7 +20,6 @@ class HomeFragment : BaseFragment() {
         get() = R.layout.home_fragment
 
     override fun initView() {
-        
     }
 
     override fun initData() {

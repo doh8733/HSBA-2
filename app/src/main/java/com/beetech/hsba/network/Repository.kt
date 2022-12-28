@@ -22,6 +22,7 @@ class Repository @Inject constructor(val apiInterface: ApiInterface) {
         val loginRequest = LoginRequest()
         loginRequest.username = username
         loginRequest.password = password
+
         return apiInterface.loginApp(loginRequest)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())

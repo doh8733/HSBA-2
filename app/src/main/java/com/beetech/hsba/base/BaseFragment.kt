@@ -1,6 +1,11 @@
 package com.beetech.hsba.base
 
+import android.app.Activity
+import android.content.Context
+import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
+import android.provider.CalendarContract.Colors
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +19,7 @@ import com.beetech.hsba.base.entity.BaseListResponse
 import com.beetech.hsba.base.entity.BaseObjectResponse
 import com.beetech.hsba.utils.Define
 
+
 abstract class BaseFragment : Fragment() {
 
     private var viewController : ViewController? = null
@@ -25,15 +31,16 @@ abstract class BaseFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        activity?.window?.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         return LayoutInflater.from(context).inflate(layoutId, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         initView()
         initData()
         initListener()
+
     }
 
     abstract fun backFromAddFragment()

@@ -3,9 +3,7 @@
     <item
         android:width="46dp"
         android:height="44dp"
-        android:top="2dp"
-        android:bottom="2dp"
-        android:left="1dp"
+        android:left="2dp"
         android:drawable="@drawable/custom_bg_icon"
         android:gravity="center_horizontal|center_vertical"
          />

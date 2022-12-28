@@ -2,6 +2,7 @@ package com.beetech.hsba.di.module
 
 import android.content.Context
 import com.beetech.hsba.BuildConfig
+import com.beetech.hsba.network.AddHeaderInterceptor
 import com.beetech.hsba.network.ApiInterface
 import com.beetech.hsba.network.NetworkCheckerInterceptor
 import com.beetech.hsba.utils.Define
@@ -50,10 +51,11 @@ class NetworkModule {
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
 //        val tokenInterceptor = TokenInterceptor()
         val networkCheckerInterceptor = NetworkCheckerInterceptor(context)
-
+        val addHeaderInterceptor = AddHeaderInterceptor(context)
         return OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
             .addInterceptor(networkCheckerInterceptor)
+            .addInterceptor(addHeaderInterceptor)
             .connectTimeout(Define.DEFAULT_TIMEOUT, TimeUnit.SECONDS)
             .readTimeout(Define.DEFAULT_TIMEOUT, TimeUnit.SECONDS)
             .build()

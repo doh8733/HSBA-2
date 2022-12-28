@@ -2,6 +2,7 @@ package com.beetech.hsba.ui
 
 import android.os.Handler
 import android.os.Looper
+import android.view.WindowManager
 import com.beetech.hsba.R
 import com.beetech.hsba.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
@@ -23,6 +24,8 @@ class SplashFragment : BaseFragment() {
     }
 
     override fun initView() {
+
+
     }
 
     override fun initData() {

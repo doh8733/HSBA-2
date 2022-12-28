@@ -14,5 +14,5 @@
     <string name="text_login_with_zalo">Đăng nhập với Zalo</string>
     <string name="text_login_with_fb">Đăng nhập với Facebook</string>
     <string name="text_login_with_apple">Đăng nhập với Apple</string>
-    <string name="text_login_with_google">Đăng nhập với google</string>
+    <string name="text_login_with_google"> Đăng nhập với google</string>
 </resources>
