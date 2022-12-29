@@ -1,5 +1,6 @@
 package com.beetech.hsba.ui.login
 
+import android.app.Application
 import android.content.Context
 import android.util.Log
 import android.util.Patterns
@@ -15,17 +16,17 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class LoginViewModel @Inject constructor(val repository: Repository, val context: Context) :
+class LoginViewModel @Inject constructor(val repository: Repository, val context: Application) :
     BaseViewModel() {
     var data: ObjectResponse<Data> = MutableLiveData()
 
     fun validateLogin(userName: String, password: String) {
         if (userName.isEmpty() || password.isEmpty()) {
-            Toast.makeText(context, "Vui lòng nhập đủ dữ liệu", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context.applicationContext, "Vui lòng nhập đủ dữ liệu", Toast.LENGTH_SHORT).show()
             return
         }
         if (!userName.isValidEmail()) {
-            Toast.makeText(context, "Sai định dạng email", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context.applicationContext, "Sai định dạng email", Toast.LENGTH_SHORT).show()
             return
         }
         if (userName.isValidEmail() && userName.isNotEmpty() && password.isNotEmpty()){
@@ -41,8 +42,8 @@ class LoginViewModel @Inject constructor(val repository: Repository, val context
             data.value=  it.data?.let { BaseObjectResponse<Data>().success(it) }
             Log.e(TAG, "onSuccess: ${it.data.toString()}", )
         },{
+            Log.e(TAG, "posLogin: ${it}", )
             data.postValue(BaseObjectResponse<Data>().error(it,true))
-
         })
 
 
