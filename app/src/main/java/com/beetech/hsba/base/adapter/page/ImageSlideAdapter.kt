@@ -21,7 +21,6 @@ class ImageSlideAdapter : RecyclerView.Adapter<ImageSlideAdapter.ImageSliderView
     var listPhoto = mutableListOf<Photo>()
         set(value) {
             field = value
-            notifyDataSetChanged()
         }
 
     class ImageSliderViewHolder(view: View) : RecyclerView.ViewHolder(view) {

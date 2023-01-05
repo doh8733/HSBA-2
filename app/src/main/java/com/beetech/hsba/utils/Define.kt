@@ -59,6 +59,7 @@ open class Define {
             val EMAIL = "email"
             val LOCATION = "location"
             val PASSWORD = "password"
+            val DATA_USER = "data_user"
         }
 
         object Repo {

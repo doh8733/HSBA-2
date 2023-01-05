@@ -5,21 +5,23 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.beetech.hsba.R
-import com.beetech.hsba.entity.ChuyenKhoa
+import com.beetech.hsba.entity.services.Services
+import com.beetech.hsba.entity.specialty.Specialty
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.item_chuyen_khoa.view.*
 
-class TabPageAdapter : RecyclerView.Adapter<TabPageAdapter.TabPageHolder>() {
+class ServiceAdapter : RecyclerView.Adapter<ServiceAdapter.TabPageHolder>() {
 
-    var lPhoto = mutableListOf<ChuyenKhoa>()
+    var lPhoto = mutableListOf<Services>()
         set(value) {
             field = value
             notifyDataSetChanged()
         }
 
     class TabPageHolder(view: View) : RecyclerView.ViewHolder(view) {
-        fun onBind(chuyenkhoa: ChuyenKhoa){
-            itemView.img_icon.setImageResource(chuyenkhoa.img)
-            itemView.tv_text.text = chuyenkhoa.text.toString()
+        fun onBind(specialty: Services){
+            Glide.with(itemView.context).load("http://hsba-v2.beetechdev.vn:1680/storage/"+specialty.icon).into(itemView.img_icon)
+            itemView.tv_text.text = specialty.name.toString()
         }
     }
 

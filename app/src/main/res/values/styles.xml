@@ -15,6 +15,7 @@
     <style name="roundedImageViewRounded">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
+        <item name="cornerRadius">32dp</item>
     </style>
     <style name="TabLayoutStyle" parent="Widget.Design.TabLayout">
         <item name="android:textSize">8sp</item>

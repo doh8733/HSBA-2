@@ -52,5 +52,7 @@
     <string name="lay_mau_tai_nha">Lấy máu tại nhà</string>
     <string name="cham_soc_y_te_tai_nha">Chăm sóc sức khỏe tại nhà</string>
 
+    <string name="not_internet">Kiểm tra kết nối Internet</string>
+
 
 </resources>

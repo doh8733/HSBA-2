@@ -65,6 +65,7 @@ abstract class BaseActivity : AppCompatActivity() {
 //        window.statusBarColor = Color.TRANSPARENT
     }
 
+
     override fun onBackPressed() {
         if(viewController!= null && viewController?.currentFragment!=null){
             if(viewController?.currentFragment?.backPressed() == true){

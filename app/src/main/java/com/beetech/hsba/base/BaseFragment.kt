@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.annotation.LayoutRes
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import com.beetech.hsba.base.custom.HSBALoadingDialog
 import com.beetech.hsba.base.entity.BaseError
@@ -36,6 +37,8 @@ abstract class BaseFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
 
         initView()
         initData()
@@ -151,4 +154,19 @@ abstract class BaseFragment : Fragment() {
 
     protected open fun handleValidateError(throwable: BaseError?) {}
 
+    open fun marginStatusBar(listView: List<View>) {
+        for (i in listView) {
+            val params = i.layoutParams as ConstraintLayout.LayoutParams
+            params.topMargin = params.topMargin + getStatusBarHeight()
+            i.layoutParams = params
+        }
+    }
+    open fun getStatusBarHeight(): Int {
+        var result = 0
+        val resourceId = resources.getIdentifier("status_bar_height", "dimen", "android")
+        if (resourceId > 0) {
+            result = resources.getDimensionPixelSize(resourceId)
+        }
+        return result
+    }
 }

@@ -41,13 +41,7 @@ class SplashFragment : BaseFragment() {
     }
 
     override fun initData() {
-        context?.getSharedPreferences("SESSION", Context.MODE_PRIVATE)?.let {
-            email = it.getString(Define.Database.User.EMAIL, "").toString()
-            password = it.getString(Define.Database.User.PASSWORD, "").toString()
-            Log.e(TAG, "initData: $email")
-        }
-
-
+        getSessionLogin()
     }
 
 
@@ -61,13 +55,19 @@ class SplashFragment : BaseFragment() {
                 else{
                     getVC().replaceFragment(LoginFragment::class.java)
                 }
-
             }, 1500)
         }
 
 
     }
 
+    private fun getSessionLogin(){
+        context?.getSharedPreferences("SESSION", Context.MODE_PRIVATE)?.let {
+            email = it.getString(Define.Database.User.EMAIL, "").toString()
+            password = it.getString(Define.Database.User.PASSWORD, "").toString()
+            Log.e(TAG, "initData: $email")
+        }
+    }
 
     private val viewModel: SplashViewModel by viewModels()
 }

@@ -4,14 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#FFD7D7"
-    android:backgroundTint="#FFD7D7"
-    android:paddingHorizontal="17dp">
+    android:paddingHorizontal="18dp">
 
     <ImageView
         android:id="@+id/img_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="25dp"
+        android:layout_height="27dp"
         android:layout_marginTop="15dp"
         android:src="@drawable/ic_gan"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,6 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
+        android:maxLines="1"
         android:layout_toRightOf="@+id/img_icon"
         android:fontFamily="@font/roboto_regular"
         android:text="@string/truyen_nhiem"

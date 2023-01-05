@@ -11,22 +11,26 @@ import com.beetech.hsba.base.adapter.RecyclerViewAdapter.Companion.TAG
 import com.beetech.hsba.base.entity.BaseObjectResponse
 import com.beetech.hsba.entity.login.Data
 import com.beetech.hsba.extension.ObjectResponse
+import com.beetech.hsba.extension.getString
 import com.beetech.hsba.network.Repository
+import com.beetech.hsba.utils.Define
+import com.google.gson.Gson
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
+import kotlin.math.log
 
 @HiltViewModel
-class LoginViewModel @Inject constructor(val repository: Repository, val context: Application) :
+class LoginViewModel @Inject constructor(val repository: Repository, val application: Application) :
     BaseViewModel() {
     var data: ObjectResponse<Data> = MutableLiveData()
 
     fun validateLogin(userName: String, password: String) {
         if (userName.isEmpty() || password.isEmpty()) {
-            Toast.makeText(context.applicationContext, "Vui lòng nhập đủ dữ liệu", Toast.LENGTH_SHORT).show()
+            Toast.makeText(application.applicationContext, "Vui lòng nhập đủ dữ liệu", Toast.LENGTH_SHORT).show()
             return
         }
         if (!userName.isValidEmail()) {
-            Toast.makeText(context.applicationContext, "Sai định dạng email", Toast.LENGTH_SHORT).show()
+            Toast.makeText(application.applicationContext, "Sai định dạng email", Toast.LENGTH_SHORT).show()
             return
         }
         if (userName.isValidEmail() && userName.isNotEmpty() && password.isNotEmpty()){
@@ -40,20 +44,30 @@ class LoginViewModel @Inject constructor(val repository: Repository, val context
             data.value = BaseObjectResponse<Data>().loading()
         }.subscribe({
             data.value=  it.data?.let { BaseObjectResponse<Data>().success(it) }
-            Log.e(TAG, "onSuccess: ${it.data.toString()}", )
+             saveDataLogin(it.data!!)
         },{
-            Log.e(TAG, "posLogin: ${it}", )
-            data.value = BaseObjectResponse<Data>().error(it,false)
+            data.value = BaseObjectResponse<Data>().error(it,true)
+            Log.e(TAG, "posLogin: ${it.message}", )
         })
-
-
-
-
-
-
-
     }
 
-    fun CharSequence?.isValidEmail() =
-        !isNullOrEmpty() && Patterns.EMAIL_ADDRESS.matcher(this).matches()
+     private fun  saveDataLogin(data: Data){
+        application.getSharedPreferences("DATA",Context.MODE_PRIVATE)?.let {
+            val editor = it.edit()
+            editor.putString(Define.Database.User.DATA_USER,Gson().toJson(data))
+            editor.apply()
+        }
+    }
+
+    fun sessionLogin(userName: String,password: String) {
+        application.getSharedPreferences("SESSION", Context.MODE_PRIVATE).let {
+            val editor = it?.edit()
+            editor?.putString(Define.Database.User.EMAIL, userName)
+            editor?.putString(Define.Database.User.PASSWORD, password)
+            editor?.apply()
+        }
+    }
+
+
+    private fun CharSequence?.isValidEmail() = !isNullOrEmpty() && Patterns.EMAIL_ADDRESS.matcher(this).matches()
 }

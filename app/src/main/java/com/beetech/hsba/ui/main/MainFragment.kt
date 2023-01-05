@@ -1,20 +1,14 @@
 package com.beetech.hsba.ui.main
 
-import android.graphics.Color
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
+
 import android.view.MenuItem
-import android.view.View
-import android.view.ViewGroup
 import androidx.viewpager2.widget.ViewPager2
 import com.beetech.hsba.R
 import com.beetech.hsba.base.BaseFragment
 import com.beetech.hsba.base.adapter.page.NavigatioPagerAdapter
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.fragment_main.*
-import kotlinx.android.synthetic.main.home_fragment.*
+
 
 
 class MainFragment : BaseFragment() {
@@ -33,35 +27,11 @@ class MainFragment : BaseFragment() {
             adapter = navigatioPagerAdapter
             offscreenPageLimit = 5
             isUserInputEnabled = false
+            clipToPadding = false
+            clipChildren = false
 
         }
         setUpNavigationBottom()
-//        TabLayoutMediator(tab_nav,page_nav){tab,page ->
-//            when (page) {
-//                0 -> {
-//                    tab.text = getString(R.string.tab1)
-//                }
-//                1 -> {
-//                    tab.text = getString(R.string.tab2)
-//                }
-//                2 -> {
-//                    tab.text = getString(R.string.tab3)
-//                }
-//                3 -> {
-//                    tab.text = getString(R.string.tab4)
-//                }
-//                4 -> {
-//                    tab.text = getString(R.string.tab5)
-//                }
-//            }
-//        }.attach()
-//        tab_nav.apply {
-//            getTabAt(0)?.setIcon(R.drawable.home)
-//            getTabAt(1)?.setIcon(R.drawable.ic_nav_kham_benh)
-//            getTabAt(2)?.setIcon(R.drawable.ic_nav_xet_nghiem)
-//            getTabAt(3)?.setIcon(R.drawable.ic_nav_ho_so)
-//            getTabAt(4)?.setIcon(R.drawable.ic_nav_tai_khoan)
-//        }
 
 
     }
