@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    <item
+        android:bottom="-3dp"
+        android:left="0dp"
+        android:right="0dp"
+        android:top="0dp"
+
+        >
+        <shape android:shape="rectangle">
+            <corners
+                android:topLeftRadius="20dp"/>
+            <stroke
+                android:width="2dp"
+                android:color="@color/md_white_1000"
+                />
+
+            <solid android:color="@color/tab_bg_select_item1" />
+
+            <padding
+                android:bottom="10dp"
+                android:left="10dp"
+                android:right="10dp"
+                android:top="16dp" />
+        </shape>
+    </item>
+</layer-list>

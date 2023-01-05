@@ -1,15 +1,273 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F2F2F2"
     android:fitsSystemWindows="true"
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".ui.home.HomeFragment"
+    tools:ignore="ScrollViewCount">
 
-    <TextView
-        android:gravity="center"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-</FrameLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gradien_bg_home"
+            android:paddingBottom="@dimen/margin_30_dp">
+
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/img_avatar"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="37dp"
+                android:background="@drawable/border_oval_avatar"
+                android:src="@mipmap/ic_launcher"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
+                app:strokeColor="#FFBB00"
+                app:strokeWidth="1dp" />
+
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="58dp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="Nguyễn Thu Hương"
+                android:textColor="@color/md_white_1000"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/img_avatar"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/bg_text_notifi"
+                android:gravity="center"
+                android:text="2"
+                android:textColor="@color/md_white_1000"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+                app:layout_constraintEnd_toEndOf="@+id/imageView3"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="56dp"
+                android:layout_marginEnd="19dp"
+                android:src="@drawable/ic_notify"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/btn_ho_so_kham_benh"
+                android:layout_width="160dp"
+                android:layout_height="184dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="36dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bg_btn_ho_so"
+                android:drawableTop="@drawable/ic_ho_so"
+                android:drawablePadding="17dp"
+                android:fontFamily="@font/roboto_medium"
+                android:minHeight="160dp"
+                android:paddingTop="34dp"
+                android:paddingBottom="41dp"
+                android:text="@string/text_home1"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/md_white_1000"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@+id/btn_lien_he_bac_si"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img_avatar" />
+
+            <TextView
+                android:id="@+id/btn_lien_he_bac_si"
+                android:layout_width="160dp"
+                android:layout_height="184dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="36dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/bg_btn_lien_he_bac_si"
+                android:drawableTop="@drawable/ic_kham_benh"
+                android:drawablePadding="17dp"
+                android:fontFamily="@font/roboto_medium"
+                android:maxHeight="184dp"
+                android:maxLines="2"
+                android:minHeight="160dp"
+                android:paddingHorizontal="16dp"
+                android:paddingTop="34dp"
+                android:paddingBottom="18dp"
+                android:text="@string/text_home2"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/md_white_1000"
+                android:textSize="20sp"
+                app:cornerRadius="20dp"
+                app:icon="@drawable/ic_kham_benh"
+                app:iconGravity="textTop"
+                app:iconPadding="17dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btn_ho_so_kham_benh"
+                app:layout_constraintTop_toBottomOf="@+id/img_avatar" />
+
+            <TextView
+                android:id="@+id/btn_ket_qua_xet_nghiem"
+                android:layout_width="160dp"
+                android:layout_height="184dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/bg_btn_cap_nhap_ket_qua"
+                android:drawablePadding="17dp"
+                android:fontFamily="@font/roboto_medium"
+                android:gravity="center_horizontal"
+                android:maxLines="2"
+                android:minHeight="160dp"
+                android:paddingTop="34dp"
+                android:paddingBottom="17dp"
+                android:text="@string/text_home3"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/md_white_1000"
+                android:textSize="20sp"
+                app:cornerRadius="20dp"
+                app:drawableTopCompat="@drawable/ic_ket_qua"
+                app:iconGravity="textTop"
+                app:iconPadding="17dp"
+                app:layout_constraintEnd_toStartOf="@+id/btn_dat_lich_kham"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_ho_so_kham_benh" />
+
+            <TextView
+                android:id="@+id/btn_dat_lich_kham"
+                android:layout_width="160dp"
+                android:layout_height="184dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/bg_btn_dat_lich_kham_benh"
+                android:drawableTop="@drawable/ic_lich"
+                android:drawablePadding="17dp"
+                android:fontFamily="@font/roboto_medium"
+                android:maxLines="2"
+                android:minHeight="160dp"
+                android:paddingTop="34dp"
+                android:paddingBottom="17dp"
+                android:text="@string/text_home4"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/md_white_1000"
+                android:textSize="20sp"
+                app:cornerRadius="20dp"
+                app:icon="@drawable/ic_lich"
+                app:iconGravity="textTop"
+                app:iconPadding="21dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btn_ket_qua_xet_nghiem"
+                app:layout_constraintTop_toBottomOf="@+id/btn_lien_he_bac_si" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="540dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="29dp"
+            android:background="@drawable/border_sub_layout_page">
+
+            <LinearLayout
+                android:id="@+id/tabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/btn_chuyen_khoa"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/corner_text_item1"
+                    android:fontFamily="@font/roboto_medium"
+                    android:paddingTop="17dp"
+                    android:paddingBottom="10dp"
+                    android:text="@string/home_page1"
+                    android:textAlignment="center"
+                    android:textColor="@color/text_black"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/btn_dich_vu"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/corner_text_item2"
+                    android:fontFamily="@font/roboto_medium"
+                    android:paddingTop="17dp"
+                    android:paddingBottom="10dp"
+                    android:text="@string/home_page2"
+                    android:textAlignment="center"
+                    android:textColor="@color/text_black"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/view_page"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="23dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="14dp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/noi_bat"
+            android:textColor="@color/text_black"
+            android:textSize="20sp" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/view_slide"
+            android:layout_width="match_parent"
+            android:layout_height="125dp"
+            android:nestedScrollingEnabled="true"
+            android:paddingHorizontal="70dp"
+            android:scaleType="fitXY" />
+
+        <com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
+            android:id="@+id/circle_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            app:dotsColor="#42A3B3"
+            app:dotsSize="10dp"
+            app:dotsStrokeColor="#707070"
+            app:dotsStrokeWidth="1dp"
+            app:progressMode="true" />
+
+    </LinearLayout>
+
+</ScrollView>
+

@@ -43,7 +43,7 @@ class LoginViewModel @Inject constructor(val repository: Repository, val context
             Log.e(TAG, "onSuccess: ${it.data.toString()}", )
         },{
             Log.e(TAG, "posLogin: ${it}", )
-            data.postValue(BaseObjectResponse<Data>().error(it,true))
+            data.value = BaseObjectResponse<Data>().error(it,false)
         })
 
 

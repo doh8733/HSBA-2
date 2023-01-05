@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/home"
+        android:title="Home"
+        app:showAsAction="withText" />
+    <item
+        android:id="@+id/nav_kham_benh"
+        android:icon="@drawable/ic_nav_kham_benh"
+        android:title="Khám bệnh"
+        app:showAsAction="withText" />
+    <item
+        android:id="@+id/nav_xet_nghiem"
+        android:icon="@drawable/ic_nav_xet_nghiem"
+        android:title="Xét nghiệm"
+        app:showAsAction="withText" />
+    <item
+        android:id="@+id/nav_ho_so"
+        android:icon="@drawable/ic_nav_ho_so"
+        android:title="Hồ sơ"
+        app:showAsAction="withText" />
+    <item
+        android:id="@+id/nav_tai_khoan"
+        android:icon="@drawable/ic_nav_tai_khoan"
+        android:title="Home"
+        app:showAsAction="withText" />
+
+</menu>

@@ -12,6 +12,8 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.beetech.hsba.base.BaseActivity
 import com.beetech.hsba.ui.SplashFragment
+import com.beetech.hsba.ui.home.HomeFragment
+import com.beetech.hsba.ui.main.MainFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

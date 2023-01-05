@@ -15,4 +15,42 @@
     <string name="text_login_with_fb">Đăng nhập với Facebook</string>
     <string name="text_login_with_apple">Đăng nhập với Apple</string>
     <string name="text_login_with_google"> Đăng nhập với google</string>
+
+    <string name="tab1">Trang chủ</string>
+    <string name="tab2">Khám bệnh</string>
+    <string name="tab3">Xét nghiệm</string>
+    <string name="tab4">Hồ sơ</string>
+    <string name="tab5">Tài khoản</string>
+
+
+    <string name="text_home1">Hồ sơ bệnh án</string>
+    <string name="text_home2">Liên hệ bác sĩ tư vấn</string>
+    <string name="text_home3">Cập nhật kết quả xét nghiệm</string>
+    <string name="text_home4">Đặt lịch khám</string>
+    <string name="home_page1">Chuyên khoa</string>
+    <string name="home_page2">Dịch vụ</string>
+    <string name="noi_bat">Nổi bật</string>
+
+
+    <string name="truyen_nhiem">Truyền nhiễm - Viêm gan</string>
+    <string name="tim_mach">Tim mạch</string>
+    <string name="ung_buou">Ung bướu</string>
+    <string name="noi_tiet">Nội tiết - Đái tháo đường</string>
+    <string name="than">Thận - Tiết niệu</string>
+    <string name="tieu_hoa">Tiêu hóa</string>
+    <string name="co_xuong_khop">Xương khớp</string>
+    <string name="ho_hap">Hô hấp - COPD</string>
+    <string name="tai_mui_hong">Tai - Mũi - Họng</string>
+    <string name="rang_ham_mat">Răng - Hàm - Mặt</string>
+    <string name="ngoai_khoa">Ngoại khoa</string>
+
+
+    //service
+    <string name="kham_tong_quat">Khám tổng quát</string>
+    <string name="tam_soat_ung_thu">Tầm soát ung thư</string>
+    <string name="kham_suc_khoe_co_quan">Khám sức khỏe cơ quan</string>
+    <string name="lay_mau_tai_nha">Lấy máu tại nhà</string>
+    <string name="cham_soc_y_te_tai_nha">Chăm sóc sức khỏe tại nhà</string>
+
+
 </resources>

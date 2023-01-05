@@ -14,8 +14,8 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="144dp"
+            android:layout_width="144dp"
+            android:layout_height="111dp"
             android:layout_gravity="center"
             android:layout_marginStart="17dp"
             android:layout_marginTop="85dp"
@@ -23,7 +23,7 @@
             android:maxWidth="144dp"
             android:maxHeight="111dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/img_logo"
+            android:src="@drawable/logo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -68,6 +68,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            app:passwordToggleEnabled="true"
             android:layout_marginTop="15dp"
             app:boxCornerRadiusBottomEnd="24dp"
             app:boxCornerRadiusBottomStart="24dp"

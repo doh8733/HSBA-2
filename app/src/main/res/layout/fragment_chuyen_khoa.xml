@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/strok_sub_layout_chuyen_khoa"
+    tools:context=".ui.ChuyenKhoaFragment">
+
+<!--        <androidx.appcompat.widget.Toolbar-->
+<!--            android:id="@+id/toolbar_truyen_nhiem"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_marginBottom="11dp">-->
+
+<!--            <ImageView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="26dp"-->
+<!--                android:src="@drawable/ic_gan" />-->
+
+<!--            <TextView-->
+<!--                android:layout_marginLeft="9dp"-->
+<!--                android:textSize="20sp"-->
+<!--                android:textColor="@color/text_black"-->
+<!--                android:fontFamily="@font/roboto_regular"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="@string/truyen_nhiem" />-->
+<!--        </androidx.appcompat.widget.Toolbar>-->
+<!--        <ImageView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="10dp"-->
+<!--            android:background="@drawable/doted2"-->
+<!--            android:baselineAlignBottom="true"-->
+<!--            android:layerType="software"-->
+<!--            android:layout_marginRight="28dp"-->
+<!--            android:layout_marginLeft="60dp"/>-->
+<!--    <androidx.appcompat.widget.Toolbar-->
+<!--        android:id="@+id/toolbar_noi_tiet"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="30dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginBottom="11dp">-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="26dp"-->
+<!--            android:src="@drawable/ic_noi_tiet" />-->
+
+<!--        <TextView-->
+<!--            android:textSize="20sp"-->
+<!--            android:textColor="@color/text_black"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="9dp"-->
+<!--            android:text="@string/noi_tiet" />-->
+<!--    </androidx.appcompat.widget.Toolbar>-->
+<!--    <ImageView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="10dp"-->
+<!--        android:background="@drawable/doted2"-->
+<!--        android:baselineAlignBottom="true"-->
+<!--        android:layerType="software"-->
+<!--        android:layout_marginRight="28dp"-->
+<!--        android:layout_marginLeft="60dp"/>-->
+<!--    <androidx.appcompat.widget.Toolbar-->
+<!--        android:id="@+id/toolbar1"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="30dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginBottom="11dp">-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="26dp"-->
+<!--            android:src="@drawable/ic_tim_mach" />-->
+
+<!--        <TextView-->
+<!--            android:layout_marginLeft="9dp"-->
+<!--            android:textSize="20sp"-->
+<!--            android:textColor="@color/text_black"-->
+<!--            android:fontFamily="@font/roboto_regular"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/tim_mach" />-->
+<!--    </androidx.appcompat.widget.Toolbar>-->
+<!--    <ImageView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="10dp"-->
+<!--        android:background="@drawable/doted2"-->
+<!--        android:baselineAlignBottom="true"-->
+<!--        android:layerType="software"-->
+<!--        android:layout_marginRight="28dp"-->
+<!--        android:layout_marginLeft="60dp"/>-->
+<!--    <androidx.appcompat.widget.Toolbar-->
+<!--        android:id="@+id/toolbar_ung_buou"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="30dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginBottom="11dp">-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="26dp"-->
+<!--            android:src="@drawable/ic_ung_buou" />-->
+
+<!--        <TextView-->
+<!--            android:textSize="20sp"-->
+<!--            android:textColor="@color/text_black"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="9dp"-->
+<!--            android:text="@string/ung_buou" />-->
+<!--    </androidx.appcompat.widget.Toolbar>-->
+<!--    <ImageView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="10dp"-->
+<!--        android:background="@drawable/doted2"-->
+<!--        android:baselineAlignBottom="true"-->
+<!--        android:layerType="software"-->
+<!--        android:layout_marginRight="28dp"-->
+<!--        android:layout_marginLeft="60dp"/>-->
+
+<!--    <androidx.appcompat.widget.Toolbar-->
+<!--        android:id="@+id/toolbar_than"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="30dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginBottom="11dp">-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="26dp"-->
+<!--            android:src="@drawable/ic_than" />-->
+
+<!--        <TextView-->
+<!--            android:layout_marginLeft="9dp"-->
+<!--            android:textSize="20sp"-->
+<!--            android:textColor="@color/text_black"-->
+<!--            android:fontFamily="@font/roboto_regular"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/than" />-->
+<!--    </androidx.appcompat.widget.Toolbar>-->
+<!--    <ImageView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="10dp"-->
+<!--        android:background="@drawable/doted2"-->
+<!--        android:baselineAlignBottom="true"-->
+<!--        android:layerType="software"-->
+<!--        android:layout_marginRight="28dp"-->
+<!--        android:layout_marginLeft="60dp"/>-->
+<!--    <androidx.appcompat.widget.Toolbar-->
+<!--        android:id="@+id/toolbar_tieu_hoa"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="30dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginBottom="11dp">-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="26dp"-->
+<!--            android:src="@drawable/ic_long" />-->
+
+<!--        <TextView-->
+<!--            android:textSize="20sp"-->
+<!--            android:textColor="@color/text_black"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="9dp"-->
+<!--            android:text="@string/tieu_hoa" />-->
+<!--    </androidx.appcompat.widget.Toolbar>-->
+<!--    <ImageView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="10dp"-->
+<!--        android:background="@drawable/doted2"-->
+<!--        android:baselineAlignBottom="true"-->
+<!--        android:layerType="software"-->
+<!--        android:layout_marginRight="28dp"-->
+<!--        android:layout_marginLeft="60dp"/>-->
+
+<!--    <androidx.appcompat.widget.Toolbar-->
+<!--        android:id="@+id/toolbar_co_xuong"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="30dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginBottom="11dp">-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="26dp"-->
+<!--            android:src="@drawable/ic_xuong_khop" />-->
+
+<!--        <TextView-->
+<!--            android:layout_marginLeft="9dp"-->
+<!--            android:textSize="20sp"-->
+<!--            android:textColor="@color/text_black"-->
+<!--            android:fontFamily="@font/roboto_regular"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/co_xuong_khop" />-->
+<!--    </androidx.appcompat.widget.Toolbar>-->
+<!--    <ImageView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="10dp"-->
+<!--        android:background="@drawable/doted2"-->
+<!--        android:baselineAlignBottom="true"-->
+<!--        android:layerType="software"-->
+<!--        android:layout_marginRight="28dp"-->
+<!--        android:layout_marginLeft="60dp"/>-->
+<!--    <androidx.appcompat.widget.Toolbar-->
+<!--        android:id="@+id/toolbar_ho_hap"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="30dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginBottom="11dp">-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="26dp"-->
+<!--            android:src="@drawable/ic_phoi" />-->
+
+<!--        <TextView-->
+<!--            android:textSize="20sp"-->
+<!--            android:textColor="@color/text_black"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="9dp"-->
+<!--            android:text="@string/ho_hap" />-->
+<!--    </androidx.appcompat.widget.Toolbar>-->
+<!--    <ImageView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="10dp"-->
+<!--        android:background="@drawable/doted2"-->
+<!--        android:baselineAlignBottom="true"-->
+<!--        android:layerType="software"-->
+<!--        android:layout_marginRight="28dp"-->
+<!--        android:layout_marginLeft="60dp"/>-->
+
+<!--    <androidx.appcompat.widget.Toolbar-->
+<!--        android:id="@+id/toolbar_tai_mui_hong"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="30dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginBottom="11dp">-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="26dp"-->
+<!--            android:src="@drawable/ic_tai_mui_hong" />-->
+
+<!--        <TextView-->
+<!--            android:layout_marginLeft="9dp"-->
+<!--            android:textSize="20sp"-->
+<!--            android:textColor="@color/text_black"-->
+<!--            android:fontFamily="@font/roboto_regular"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/tai_mui_hong" />-->
+<!--    </androidx.appcompat.widget.Toolbar>-->
+<!--    <ImageView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="10dp"-->
+<!--        android:background="@drawable/doted2"-->
+<!--        android:baselineAlignBottom="true"-->
+<!--        android:layerType="software"-->
+<!--        android:layout_marginRight="28dp"-->
+<!--        android:layout_marginLeft="60dp"/>-->
+<!--    <androidx.appcompat.widget.Toolbar-->
+<!--        android:id="@+id/toolbar_rang_ham_mat"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="30dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginBottom="11dp">-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="26dp"-->
+<!--            android:src="@drawable/ic_rang" />-->
+
+<!--        <TextView-->
+<!--            android:textSize="20sp"-->
+<!--            android:textColor="@color/text_black"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="9dp"-->
+<!--            android:text="@string/rang_ham_mat" />-->
+<!--    </androidx.appcompat.widget.Toolbar>-->
+<!--    <ImageView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="10dp"-->
+<!--        android:background="@drawable/doted2"-->
+<!--        android:baselineAlignBottom="true"-->
+<!--        android:layerType="software"-->
+<!--        android:layout_marginRight="28dp"-->
+<!--        android:layout_marginLeft="60dp"/>-->
+
+<!--    <androidx.appcompat.widget.Toolbar-->
+<!--        android:id="@+id/toolbar_ngoai_khoa"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="30dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginBottom="11dp">-->
+
+<!--        <ImageView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="26dp"-->
+<!--            android:src="@drawable/ic_ngoai_khoa" />-->
+
+<!--        <TextView-->
+<!--            android:layout_marginLeft="9dp"-->
+<!--            android:textSize="20sp"-->
+<!--            android:textColor="@color/text_black"-->
+<!--            android:fontFamily="@font/roboto_regular"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/ngoai_khoa" />-->
+<!--    </androidx.appcompat.widget.Toolbar>-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
