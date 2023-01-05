@@ -47,6 +47,8 @@ class SpecialistFragment : BaseFragment() {
         list.add(ChuyenKhoa(R.drawable.ic_xuong_khop, "Cơ xương khớp"))
         list.add(ChuyenKhoa(R.drawable.ic_phoi, "Hô hấp - COPD"))
         list.add(ChuyenKhoa(R.drawable.ic_tai_mui_hong, "Tai - Mũi - Họng"))
+        list.add(ChuyenKhoa(R.drawable.ic_rang, "Răng - Hàm - Mặt"))
+        list.add(ChuyenKhoa(R.drawable.ic_ngoai_khoa, "Ngoại khoa"))
         return list
     }
 }
