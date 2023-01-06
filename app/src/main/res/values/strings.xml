@@ -51,8 +51,10 @@
     <string name="kham_suc_khoe_co_quan">Khám sức khỏe cơ quan</string>
     <string name="lay_mau_tai_nha">Lấy máu tại nhà</string>
     <string name="cham_soc_y_te_tai_nha">Chăm sóc sức khỏe tại nhà</string>
-
     <string name="not_internet">Kiểm tra kết nối Internet</string>
+
+
+    <string name="lich_su_kham">Lịch sử khám bệnh</string>
 
 
 </resources>

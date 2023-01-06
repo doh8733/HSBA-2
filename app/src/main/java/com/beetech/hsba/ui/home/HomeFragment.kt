@@ -15,13 +15,10 @@ import com.beetech.hsba.base.BaseFragment
 import com.beetech.hsba.base.adapter.RecyclerViewAdapter.Companion.TAG
 import com.beetech.hsba.base.adapter.page.ImageSlideAdapter
 import com.beetech.hsba.base.adapter.page.ServiceAdapter
-import com.beetech.hsba.base.adapter.page.SpecialistAdapter
-import com.beetech.hsba.entity.ChuyenKhoa
 import com.beetech.hsba.entity.login.Data
 import com.beetech.hsba.entity.services.Services
 import com.beetech.hsba.entity.slider.Photo
 import com.beetech.hsba.entity.specialty.Specialty
-import com.beetech.hsba.extension.ListResponse
 import com.beetech.hsba.utils.Define
 import com.bumptech.glide.Glide
 import com.google.gson.Gson
@@ -35,7 +32,6 @@ class HomeFragment : BaseFragment() {
     private val imageSlideAdapter: ImageSlideAdapter by lazy {
         ImageSlideAdapter()
     }
-    private val specialistAdapter = SpecialistAdapter()
     private val serviceAdapter = ServiceAdapter()
     private lateinit var handler: Handler
     override fun backFromAddFragment() {
@@ -103,8 +99,8 @@ class HomeFragment : BaseFragment() {
         btn_dich_vu.setBackgroundResource(R.drawable.strok_bottom_right)
         container_tab.setBackgroundResource(R.drawable.border_sub_layout_page_chuyen_khoa)
         view_page.apply {
-            specialistAdapter.lPhoto = listSpecialty
-            adapter = specialistAdapter
+            serviceAdapter.lPhoto = listSpecialty.toMutableList()
+            adapter = serviceAdapter
             layoutManager = LinearLayoutManager(requireContext())
         }
     }
@@ -116,7 +112,7 @@ class HomeFragment : BaseFragment() {
         btn_chuyen_khoa.elevation = 10F
         container_tab.setBackgroundResource(R.drawable.border_sub_layout_page_dich_vu)
         view_page.apply {
-            serviceAdapter.lPhoto = listServices
+            serviceAdapter.lPhoto = listServices.toMutableList()
             adapter = serviceAdapter
             layoutManager = LinearLayoutManager(requireContext())
         }
@@ -147,8 +143,13 @@ class HomeFragment : BaseFragment() {
         context?.getSharedPreferences("DATA", Context.MODE_PRIVATE)?.let {
             val data = it.getString(Define.Database.User.DATA_USER, "").toString()
             val dataObj = Gson().fromJson(data, Data::class.java)
-            Glide.with(requireContext()).load(Define.Link.LINK_IMG + dataObj.avatar)
-                .placeholder(R.mipmap.ic_launcher).into(img_avatar)
+            Log.e(TAG, "initAvatar: $dataObj", )
+            dataObj?.let { data ->
+                Glide.with(requireContext()).load(Define.Link.LINK_IMG + data.avatar)
+                    .placeholder(R.mipmap.ic_launcher).into(img_avatar)
+                tv_name.text = data.name
+            }
+
         }
 
 
@@ -226,8 +227,8 @@ class HomeFragment : BaseFragment() {
             Log.e(TAG, "aaaaa: $result")
             listSpecialty.addAll(result)
             view_page.apply {
-                specialistAdapter.lPhoto = listSpecialty
-                adapter = specialistAdapter
+                serviceAdapter.lPhoto = listSpecialty.toMutableList()
+                adapter = serviceAdapter
                 layoutManager = LinearLayoutManager(requireContext())
             }
         } else if (data?.firstOrNull() is Services) {

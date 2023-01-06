@@ -13,18 +13,27 @@ import kotlinx.android.synthetic.main.item_chuyen_khoa.view.*
 
 class ServiceAdapter : RecyclerView.Adapter<ServiceAdapter.TabPageHolder>() {
 
-    var lPhoto = mutableListOf<Services>()
+    var lPhoto = mutableListOf<Any>()
         set(value) {
             field = value
             notifyDataSetChanged()
         }
 
     class TabPageHolder(view: View) : RecyclerView.ViewHolder(view) {
-        fun onBind(specialty: Services) {
-            Glide.with(itemView.context)
-                .load(Define.Link.LINK_IMG + specialty.icon)
-                .placeholder(R.drawable.ic_gan).into(itemView.img_icon)
-            itemView.tv_text.text = specialty.name.toString()
+        fun onBind(specialty: Any) {
+            if (specialty is Services){
+                Glide.with(itemView.context)
+                    .load(Define.Link.LINK_IMG + specialty.icon)
+                    .placeholder(R.drawable.ic_gan).into(itemView.img_icon)
+                itemView.tv_text.text = specialty.name.toString()
+            }
+            else if (specialty is Specialty){
+                Glide.with(itemView.context)
+                    .load(Define.Link.LINK_IMG + specialty.icon)
+                    .placeholder(R.drawable.ic_gan).into(itemView.img_icon)
+                itemView.tv_text.text = specialty.name.toString()
+            }
+
         }
     }
 
