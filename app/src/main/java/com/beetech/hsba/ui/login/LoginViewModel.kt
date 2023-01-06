@@ -37,7 +37,7 @@ class LoginViewModel @Inject constructor(val repository: Repository, val applica
             posLogin(userName, password)
         }
     }
-
+//a
    private fun posLogin(userName: String, password: String) {
         repository.login(
             username = userName, password = password).doOnSubscribe {
