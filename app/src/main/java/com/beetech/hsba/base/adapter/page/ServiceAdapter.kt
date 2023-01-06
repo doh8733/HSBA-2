@@ -19,20 +19,24 @@ class ServiceAdapter : RecyclerView.Adapter<ServiceAdapter.TabPageHolder>() {
         }
 
     class TabPageHolder(view: View) : RecyclerView.ViewHolder(view) {
-        fun onBind(specialty: Services){
-            Glide.with(itemView.context).load("http://hsba-v2.beetechdev.vn:1680/storage/"+specialty.icon).into(itemView.img_icon)
+        fun onBind(specialty: Services) {
+            Glide.with(itemView.context)
+                .load("http://hsba-v2.beetechdev.vn:1680/storage/" + specialty.icon)
+                .placeholder(R.drawable.ic_gan).into(itemView.img_icon)
             itemView.tv_text.text = specialty.name.toString()
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TabPageHolder {
-        return TabPageHolder( LayoutInflater.from(parent.context).inflate(R.layout.item_chuyen_khoa,parent,false))
+        return TabPageHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.item_chuyen_khoa, parent, false)
+        )
     }
 
     override fun onBindViewHolder(holder: TabPageHolder, position: Int) {
         val photos = lPhoto[position]
         holder.onBind(photos)
-        if (position == lPhoto.lastIndex){
+        if (position == lPhoto.lastIndex) {
             holder.itemView.img_dots.visibility = View.GONE
         }
     }

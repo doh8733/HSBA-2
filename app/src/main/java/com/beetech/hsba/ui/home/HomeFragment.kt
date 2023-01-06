@@ -21,6 +21,7 @@ import com.beetech.hsba.entity.login.Data
 import com.beetech.hsba.entity.services.Services
 import com.beetech.hsba.entity.slider.Photo
 import com.beetech.hsba.entity.specialty.Specialty
+import com.beetech.hsba.extension.ListResponse
 import com.beetech.hsba.utils.Define
 import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
@@ -55,8 +56,6 @@ class HomeFragment : BaseFragment() {
             offscreenPageLimit = 3
             clipToPadding = false
             clipChildren = false
-            isUserInputEnabled = false
-
         }
 
 
@@ -142,7 +141,15 @@ class HomeFragment : BaseFragment() {
 
     }
 
+    private fun initAvatar(){
+        context?.getSharedPreferences("DATA",Context.MODE_PRIVATE)?.let {
+            val data = it.getString(Define.Database.User.DATA_USER,"")
+            val dataUser = Gson().toJson(data)
 
+        }
+
+
+    }
     private fun onPageChangeCallback() {
         view_slide.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
@@ -201,16 +208,6 @@ class HomeFragment : BaseFragment() {
         viewModel.data.observe(this) {
             handleListResponse(it)
         }
-        viewModel.dataSpecialtyRes.observe(viewLifecycleOwner) {
-            it.data?.let { it1 -> listSpecialty.addAll(it1) }
-            Log.e(TAG, "Specialty: $listSpecialty")
-            view_page.apply {
-                specialistAdapter.lPhoto = listSpecialty
-                adapter = specialistAdapter
-                layoutManager = LinearLayoutManager(requireContext())
-            }
-        }
-
     }
 
     private fun getService() {
@@ -218,46 +215,29 @@ class HomeFragment : BaseFragment() {
         viewModel.dataService.observe(viewLifecycleOwner) {
             handleListResponse(it)
         }
-        viewModel.dataServiceRes.observe(viewLifecycleOwner) {
-            it.data?.let { it1 -> listServices.addAll(it1) }
-            Log.e(TAG, "services: $listServices")
-        }
     }
 
     override fun <U> getListResponse(data: List<U>?) {
-
+        if(data?.firstOrNull() is Specialty){
+            val result = data as List<Specialty>
+            Log.e(TAG, "aaaaa: $result", )
+            listSpecialty.addAll(result)
+            view_page.apply {
+                specialistAdapter.lPhoto = listSpecialty
+                adapter = specialistAdapter
+                layoutManager = LinearLayoutManager(requireContext())
+            }
+        }
+        else if (data?.firstOrNull() is Services){
+            val result = data as List<Services>
+            Log.e(TAG, "aaaaa: $result", )
+            listServices.addAll(result)
+        }
 
     }
 
     override fun handleNetworkError(throwable: Throwable?, isShowDialog: Boolean) {
         Toast.makeText(requireContext(), R.string.not_internet, Toast.LENGTH_SHORT).show()
-    }
-
-
-    private fun listc(): MutableList<ChuyenKhoa> {
-        val list = mutableListOf<ChuyenKhoa>()
-        list.add(ChuyenKhoa(R.drawable.ic_gan, "Truyền nhiễm - Viêm gan"))
-        list.add(ChuyenKhoa(R.drawable.ic_noi_tiet, "Nội tiết - Đái tháo đường"))
-        list.add(ChuyenKhoa(R.drawable.ic_tim_mach, "Tim mạch - Huyết áp"))
-        list.add(ChuyenKhoa(R.drawable.ic_ung_buou, "Ung bướu"))
-        list.add(ChuyenKhoa(R.drawable.ic_than, "Thận - Tiết niệu"))
-        list.add(ChuyenKhoa(R.drawable.ic_long, "Tiêu hóa"))
-        list.add(ChuyenKhoa(R.drawable.ic_xuong_khop, "Cơ xương khớp"))
-        list.add(ChuyenKhoa(R.drawable.ic_phoi, "Hô hấp - COPD"))
-        list.add(ChuyenKhoa(R.drawable.ic_tai_mui_hong, "Tai - Mũi - Họng"))
-        list.add(ChuyenKhoa(R.drawable.ic_rang, "Răng - Hàm - Mặt"))
-        list.add(ChuyenKhoa(R.drawable.ic_ngoai_khoa, "Ngoại khoa"))
-        return list
-    }
-
-    private fun getDV(): MutableList<ChuyenKhoa> {
-        val list = mutableListOf<ChuyenKhoa>()
-        list.add(ChuyenKhoa(R.drawable.ic_kham_tong_quat, "Khám tổng quát"))
-        list.add(ChuyenKhoa(R.drawable.ic_tam_soat_ung_, "Tầm soát ung thư"))
-        list.add(ChuyenKhoa(R.drawable.ic_lay_mau, "Lấy máu tại nhà"))
-        list.add(ChuyenKhoa(R.drawable.ic_cham_soc_tai_nha, "Chắm sóc y tế tại nhà"))
-        list.add(ChuyenKhoa(R.drawable.ic_kham_suc_khoe, "Khám sức khỏe cơ quan"))
-        return list
     }
 
 }
