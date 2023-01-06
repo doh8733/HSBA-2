@@ -49,6 +49,7 @@ class HomeFragment : BaseFragment() {
 
     override fun initView() {
         initBorderPage()
+        marginStatusBar(listOf(img_avatar,tv_name,img_notify,tv_notify))
         view_slide.apply {
             adapter = imageSlideAdapter
             offscreenPageLimit = 3
