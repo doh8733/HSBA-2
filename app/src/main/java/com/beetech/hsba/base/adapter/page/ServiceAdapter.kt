@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.beetech.hsba.R
 import com.beetech.hsba.entity.services.Services
 import com.beetech.hsba.entity.specialty.Specialty
+import com.beetech.hsba.utils.Define
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.item_chuyen_khoa.view.*
 
@@ -21,7 +22,7 @@ class ServiceAdapter : RecyclerView.Adapter<ServiceAdapter.TabPageHolder>() {
     class TabPageHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun onBind(specialty: Services) {
             Glide.with(itemView.context)
-                .load("http://hsba-v2.beetechdev.vn:1680/storage/" + specialty.icon)
+                .load(Define.Link.LINK_IMG + specialty.icon)
                 .placeholder(R.drawable.ic_gan).into(itemView.img_icon)
             itemView.tv_text.text = specialty.name.toString()
         }

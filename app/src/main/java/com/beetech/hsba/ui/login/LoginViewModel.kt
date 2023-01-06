@@ -55,6 +55,7 @@ class LoginViewModel @Inject constructor(val repository: Repository, val applica
         application.getSharedPreferences("DATA",Context.MODE_PRIVATE)?.let {
             val editor = it.edit()
             editor.putString(Define.Database.User.DATA_USER,Gson().toJson(data))
+            Log.e(TAG, "saveDataLogin: ${Gson().toJson(data)}", )
             editor.apply()
         }
     }

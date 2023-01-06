@@ -1,6 +1,9 @@
 package com.beetech.hsba.utils
 
 open class Define {
+    object Link {
+        val LINK_IMG = "http://hsba-v2.beetechdev.vn:1680/storage/"
+    }
 
     open class Api {
         val CONTENT_TYPE = "Content-Type: application/json"

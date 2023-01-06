@@ -23,6 +23,7 @@ import com.beetech.hsba.entity.slider.Photo
 import com.beetech.hsba.entity.specialty.Specialty
 import com.beetech.hsba.extension.ListResponse
 import com.beetech.hsba.utils.Define
+import com.bumptech.glide.Glide
 import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.home_fragment.*
@@ -50,7 +51,7 @@ class HomeFragment : BaseFragment() {
 
     override fun initView() {
         initBorderPage()
-        marginStatusBar(listOf(img_avatar,tv_name,img_notify,tv_notify))
+        marginStatusBar(listOf(img_avatar, tv_name, img_notify, tv_notify))
         view_slide.apply {
             adapter = imageSlideAdapter
             offscreenPageLimit = 3
@@ -58,7 +59,7 @@ class HomeFragment : BaseFragment() {
             clipChildren = false
         }
 
-
+        initAvatar()
         setUpTransform()
         onPageChangeCallback()
     }
@@ -107,7 +108,8 @@ class HomeFragment : BaseFragment() {
             layoutManager = LinearLayoutManager(requireContext())
         }
     }
-//
+
+    //
     private fun initEffectSelectItem2() {
         btn_chuyen_khoa.setBackgroundResource(R.drawable.strok_bottom_left)
         btn_dich_vu.setBackgroundResource(R.drawable.custom_select_item2)
@@ -141,28 +143,29 @@ class HomeFragment : BaseFragment() {
 
     }
 
-    private fun initAvatar(){
-        context?.getSharedPreferences("DATA",Context.MODE_PRIVATE)?.let {
-            val data = it.getString(Define.Database.User.DATA_USER,"")
-            val dataUser = Gson().toJson(data)
-
+    private fun initAvatar() {
+        context?.getSharedPreferences("DATA", Context.MODE_PRIVATE)?.let {
+            val data = it.getString(Define.Database.User.DATA_USER, "").toString()
+            val dataObj = Gson().fromJson(data, Data::class.java)
+            Glide.with(requireContext()).load(Define.Link.LINK_IMG + dataObj.avatar)
+                .placeholder(R.mipmap.ic_launcher).into(img_avatar)
         }
 
 
     }
+
     private fun onPageChangeCallback() {
         view_slide.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
-                Looper.getMainLooper().let {
-                    Handler(it).postDelayed({
-                        if (position < listImage().size - 1) {
-                            view_slide.currentItem = view_slide.currentItem + 1
-                        } else {
-                            view_slide.currentItem = 0
-                        }
-                    }, 2500)
-                }
+                Handler().postDelayed({
+                    if (position < listImage().size - 1) {
+                        view_slide.currentItem = view_slide.currentItem + 1
+                    } else {
+                        view_slide.currentItem = 0
+                    }
+                }, 2500)
+
 
             }
 
@@ -218,19 +221,18 @@ class HomeFragment : BaseFragment() {
     }
 
     override fun <U> getListResponse(data: List<U>?) {
-        if(data?.firstOrNull() is Specialty){
+        if (data?.firstOrNull() is Specialty) {
             val result = data as List<Specialty>
-            Log.e(TAG, "aaaaa: $result", )
+            Log.e(TAG, "aaaaa: $result")
             listSpecialty.addAll(result)
             view_page.apply {
                 specialistAdapter.lPhoto = listSpecialty
                 adapter = specialistAdapter
                 layoutManager = LinearLayoutManager(requireContext())
             }
-        }
-        else if (data?.firstOrNull() is Services){
+        } else if (data?.firstOrNull() is Services) {
             val result = data as List<Services>
-            Log.e(TAG, "aaaaa: $result", )
+            Log.e(TAG, "aaaaa: $result")
             listServices.addAll(result)
         }
 
