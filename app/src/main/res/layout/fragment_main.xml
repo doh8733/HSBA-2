@@ -24,6 +24,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/cornner_tab_nav"
         android:backgroundTint="#F2F2F2"
+        app:cardElevation="32dp"
         android:layout_alignParentBottom="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,7 +41,6 @@
             app:labelVisibilityMode="labeled"
             app:menu="@menu/menu_nav_home"
             app:tabIconTint="@color/nav_tab_selected"
-            app:tabIndicator="@null"
             app:tabSelectedTextColor="#F3B015"
             app:tabTextAppearance="@style/TabLayoutStyle" />
 

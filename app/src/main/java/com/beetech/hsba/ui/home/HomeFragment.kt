@@ -39,16 +39,15 @@ class HomeFragment : BaseFragment() {
     override fun backFromAddFragment() {
 
     }
-
     private var listSpecialty = mutableListOf<Specialty>()
     private var listServices = mutableListOf<Services>()
-
 
     override val layoutId: Int
         get() = R.layout.home_fragment
 
     override fun initView() {
         initBorderPage()
+        marginStatusBar(listOf(img_avatar,tv_name,img_notify))
         view_slide.apply {
             adapter = imageSlideAdapter
             offscreenPageLimit = 3
@@ -57,8 +56,6 @@ class HomeFragment : BaseFragment() {
             isUserInputEnabled = false
 
         }
-
-
         setUpTransform()
         onPageChangeCallback()
     }
@@ -66,7 +63,6 @@ class HomeFragment : BaseFragment() {
     override fun initData() {
         imageSlideAdapter.listPhoto = listImage()
         handler = Handler(Looper.getMainLooper())
-
         getService()
         getSpecialty()
     }
@@ -82,17 +78,14 @@ class HomeFragment : BaseFragment() {
     }
 
     override fun backPressed(): Boolean {
-
         return true
     }
-
 
     private fun initBorderPage() {
         btn_chuyen_khoa.setBackgroundResource(R.drawable.custom_select_item1)
         btn_dich_vu.setBackgroundResource(R.drawable.strok_bottom_right)
         btn_dich_vu.elevation = 10F
         container_tab.setBackgroundResource(R.drawable.border_sub_layout_page_chuyen_khoa)
-
     }
 
 
