@@ -107,7 +107,7 @@ class HomeFragment : BaseFragment() {
             layoutManager = LinearLayoutManager(requireContext())
         }
     }
-
+//
     private fun initEffectSelectItem2() {
         btn_chuyen_khoa.setBackgroundResource(R.drawable.strok_bottom_left)
         btn_dich_vu.setBackgroundResource(R.drawable.custom_select_item2)
