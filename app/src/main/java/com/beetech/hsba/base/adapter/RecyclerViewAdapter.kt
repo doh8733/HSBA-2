@@ -31,7 +31,6 @@ abstract class RecyclerViewAdapter(var context: Context?, enableSelectedMode: Bo
         this.inflater = LayoutInflater.from(context)
         this.listWrapperModels = ArrayList()
         this.onItemClickListeners = ArrayList(1)
-
         setSelectedMode(enableSelectedMode)
     }
 

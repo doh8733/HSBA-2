@@ -3,7 +3,7 @@ package com.beetech.hsba.entity.login
 
 import com.google.gson.annotations.SerializedName
 
-data class Data(
+data class User(
     @SerializedName("accessToken")
     var accessToken: String?,
     @SerializedName("address")

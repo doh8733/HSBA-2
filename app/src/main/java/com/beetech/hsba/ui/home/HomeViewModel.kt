@@ -29,8 +29,6 @@ class HomeViewModel @Inject constructor(val repository: Repository,application: 
       dataSpecialtyRes.value = it
     },{
       data.value = BaseListResponse<Specialty>().error(it)
-      Log.e(TAG, "getSpecialty: ${it}", )
-
     })
   }
   fun getService(){
@@ -41,8 +39,6 @@ class HomeViewModel @Inject constructor(val repository: Repository,application: 
       dataServiceRes.value = it
     },{
       dataService.value = BaseListResponse<Services>().error(it)
-      Log.e(TAG, "service: ${it}", )
-
     })
   }
 }

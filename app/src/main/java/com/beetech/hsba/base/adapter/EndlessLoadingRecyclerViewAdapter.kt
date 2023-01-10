@@ -105,7 +105,6 @@ abstract class EndlessLoadingRecyclerViewAdapter(context: Context, enableSelecte
             VIEW_TYPE_LOADING -> {
 //                bindLoadingViewHolder(viewHolder as LoadingViewHolder, position)
             }
-
             else -> {
                 bindNormalViewHolder(viewHolder as RecyclerViewAdapter.NormalViewHolder, position)
             }

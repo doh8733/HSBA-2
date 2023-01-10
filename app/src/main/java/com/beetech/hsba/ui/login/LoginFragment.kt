@@ -5,7 +5,7 @@ import androidx.fragment.app.viewModels
 import com.beetech.hsba.R
 import com.beetech.hsba.base.BaseFragment
 import com.beetech.hsba.base.adapter.RecyclerViewAdapter.Companion.TAG
-import com.beetech.hsba.entity.LoginRequest
+import com.beetech.hsba.entity.login.LoginRequest
 import com.beetech.hsba.ui.main.MainFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_login.*
@@ -52,9 +52,10 @@ class LoginFragment : BaseFragment() {
     override fun <U> getObjectResponse(data: U) {
         getVC().replaceFragment(MainFragment::class.java)
         Log.e(TAG, "getObjectResponse: $data")
-        var username = til_userName.editText?.text.toString().trim()
-        var password = til_password.editText?.text.toString().trim()
-        loginViewModel.sessionLogin(username, password)
+        val loginRequest = LoginRequest()
+        loginRequest.username = til_userName.editText?.text.toString().trim()
+        loginRequest.password = til_password.editText?.text.toString().trim()
+        loginViewModel.sessionLogin(loginRequest = loginRequest)
     }
 
 

@@ -33,7 +33,6 @@ class NetworkModule {
         val gson = GsonBuilder()
             .setLenient()
             .create()
-
         val retrofit = Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL)
             .client(client)

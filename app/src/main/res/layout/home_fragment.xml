@@ -36,7 +36,7 @@
 
 
             <TextView
-                android:id="@+id/tv_name"
+                android:id="@+id/txv_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
@@ -49,7 +49,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tv_notify"
+                android:id="@+id/txv_notify"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
@@ -74,7 +74,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/btn_ho_so_kham_benh"
+                android:id="@+id/txv_ho_so_kham_benh"
                 android:layout_width="160dp"
                 android:layout_height="184dp"
                 android:layout_marginStart="20dp"
@@ -92,12 +92,12 @@
                 android:textAllCaps="false"
                 android:textColor="@color/md_white_1000"
                 android:textSize="20sp"
-                app:layout_constraintEnd_toStartOf="@+id/btn_lien_he_bac_si"
+                app:layout_constraintEnd_toStartOf="@+id/txv_lien_he_bac_si"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/img_avatar" />
 
             <TextView
-                android:id="@+id/btn_lien_he_bac_si"
+                android:id="@+id/txv_lien_he_bac_si"
                 android:layout_width="160dp"
                 android:layout_height="184dp"
                 android:layout_marginStart="8dp"
@@ -123,11 +123,11 @@
                 app:iconGravity="textTop"
                 app:iconPadding="17dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/btn_ho_so_kham_benh"
+                app:layout_constraintStart_toEndOf="@+id/txv_ho_so_kham_benh"
                 app:layout_constraintTop_toBottomOf="@+id/img_avatar" />
 
             <TextView
-                android:id="@+id/btn_ket_qua_xet_nghiem"
+                android:id="@+id/txv_ket_qua_xet_nghiem"
                 android:layout_width="160dp"
                 android:layout_height="184dp"
                 android:layout_marginStart="20dp"
@@ -150,12 +150,12 @@
                 app:drawableTopCompat="@drawable/ic_ket_qua"
                 app:iconGravity="textTop"
                 app:iconPadding="17dp"
-                app:layout_constraintEnd_toStartOf="@+id/btn_dat_lich_kham"
+                app:layout_constraintEnd_toStartOf="@+id/txv_dat_lich_kham"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btn_ho_so_kham_benh" />
+                app:layout_constraintTop_toBottomOf="@+id/txv_ho_so_kham_benh" />
 
             <TextView
-                android:id="@+id/btn_dat_lich_kham"
+                android:id="@+id/txv_dat_lich_kham"
                 android:layout_width="160dp"
                 android:layout_height="184dp"
                 android:layout_marginStart="8dp"
@@ -179,8 +179,8 @@
                 app:iconGravity="textTop"
                 app:iconPadding="21dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/btn_ket_qua_xet_nghiem"
-                app:layout_constraintTop_toBottomOf="@+id/btn_lien_he_bac_si" />
+                app:layout_constraintStart_toEndOf="@+id/txv_ket_qua_xet_nghiem"
+                app:layout_constraintTop_toBottomOf="@+id/txv_lien_he_bac_si" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -193,7 +193,7 @@
             >
 
             <LinearLayout
-                android:id="@+id/tabLayout"
+                android:id="@+id/ll_indicator"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:weightSum="2"
@@ -201,7 +201,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:id="@+id/btn_chuyen_khoa"
+                    android:id="@+id/txv_chuyen_khoa"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -215,7 +215,7 @@
                     android:textSize="20sp" />
 
                 <TextView
-                    android:id="@+id/btn_dich_vu"
+                    android:id="@+id/txv_dich_vu"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -230,11 +230,11 @@
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/view_page"
+                android:id="@+id/rcv_specialty_or_service"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
+                app:layout_constraintTop_toBottomOf="@+id/ll_indicator" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
@@ -249,7 +249,7 @@
             android:textSize="20sp" />
 
         <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/view_slide"
+            android:id="@+id/vp_slider"
             android:layout_width="match_parent"
             android:layout_height="125dp"
             android:paddingHorizontal="70dp"

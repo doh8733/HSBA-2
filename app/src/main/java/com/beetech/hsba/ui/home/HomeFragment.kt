@@ -1,6 +1,5 @@
 package com.beetech.hsba.ui.home
 
-import android.content.Context
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
@@ -13,15 +12,14 @@ import androidx.viewpager2.widget.ViewPager2
 import com.beetech.hsba.R
 import com.beetech.hsba.base.BaseFragment
 import com.beetech.hsba.base.adapter.RecyclerViewAdapter.Companion.TAG
-import com.beetech.hsba.base.adapter.page.ImageSlideAdapter
-import com.beetech.hsba.base.adapter.page.ServiceAdapter
-import com.beetech.hsba.entity.login.Data
+import com.beetech.hsba.adapter.ImageSlideAdapter
+import com.beetech.hsba.adapter.ServiceAndSpecialtyAdapter
 import com.beetech.hsba.entity.services.Services
 import com.beetech.hsba.entity.slider.Photo
 import com.beetech.hsba.entity.specialty.Specialty
+import com.beetech.hsba.ui.login.LoginViewModel
 import com.beetech.hsba.utils.Define
 import com.bumptech.glide.Glide
-import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.home_fragment.*
 import kotlin.math.abs
@@ -29,10 +27,11 @@ import kotlin.math.abs
 @AndroidEntryPoint
 class HomeFragment : BaseFragment() {
     private val viewModel: HomeViewModel by viewModels()
+    private val loginViewModel: LoginViewModel by viewModels()
     private val imageSlideAdapter: ImageSlideAdapter by lazy {
         ImageSlideAdapter()
     }
-    private val serviceAdapter = ServiceAdapter()
+    private val serviceAdapter = ServiceAndSpecialtyAdapter()
     private lateinit var handler: Handler
     override fun backFromAddFragment() {
 
@@ -47,8 +46,8 @@ class HomeFragment : BaseFragment() {
 
     override fun initView() {
         initBorderPage()
-        marginStatusBar(listOf(img_avatar, tv_name, img_notify, tv_notify))
-        view_slide.apply {
+        marginStatusBar(listOf(img_avatar, txv_name, img_notify, txv_notify))
+        vp_slider.apply {
             adapter = imageSlideAdapter
             offscreenPageLimit = 3
             clipToPadding = false
@@ -69,54 +68,55 @@ class HomeFragment : BaseFragment() {
     }
 
     override fun initListener() {
-        btn_chuyen_khoa.setOnClickListener {
+        txv_chuyen_khoa.setOnClickListener {
             initEffectSelectItem1()
         }
-        btn_dich_vu.setOnClickListener {
+        txv_dich_vu.setOnClickListener {
             initEffectSelectItem2()
         }
-
     }
 
     override fun backPressed(): Boolean {
-
         return true
     }
 
-
+    private fun initAvatar() {
+        loginViewModel.getDataUser().let { data ->
+            Glide.with(requireContext()).load(Define.Link.LINK_IMG + data?.avatar)
+                .placeholder(R.mipmap.ic_launcher).into(img_avatar)
+            txv_name.text = data?.name
+        }
+    }
     private fun initBorderPage() {
-        btn_chuyen_khoa.setBackgroundResource(R.drawable.custom_select_item1)
-        btn_dich_vu.setBackgroundResource(R.drawable.strok_bottom_right)
-        btn_dich_vu.elevation = 10F
+        txv_chuyen_khoa.setBackgroundResource(R.drawable.custom_select_item1)
+        txv_dich_vu.setBackgroundResource(R.drawable.strok_bottom_right)
+        txv_dich_vu.elevation = 10F
         container_tab.setBackgroundResource(R.drawable.border_sub_layout_page_chuyen_khoa)
-
     }
 
 
     private fun initEffectSelectItem1() {
-        btn_dich_vu.elevation = 10F
-        btn_chuyen_khoa.setBackgroundResource(R.drawable.custom_select_item1)
-        btn_dich_vu.setBackgroundResource(R.drawable.strok_bottom_right)
+        txv_dich_vu.elevation = 10F
+        txv_chuyen_khoa.setBackgroundResource(R.drawable.custom_select_item1)
+        txv_dich_vu.setBackgroundResource(R.drawable.strok_bottom_right)
         container_tab.setBackgroundResource(R.drawable.border_sub_layout_page_chuyen_khoa)
-        view_page.apply {
+        rcv_specialty_or_service.apply {
             serviceAdapter.lPhoto = listSpecialty.toMutableList()
             adapter = serviceAdapter
             layoutManager = LinearLayoutManager(requireContext())
         }
     }
 
-    //
     private fun initEffectSelectItem2() {
-        btn_chuyen_khoa.setBackgroundResource(R.drawable.strok_bottom_left)
-        btn_dich_vu.setBackgroundResource(R.drawable.custom_select_item2)
-        btn_chuyen_khoa.elevation = 10F
+        txv_chuyen_khoa.setBackgroundResource(R.drawable.strok_bottom_left)
+        txv_dich_vu.setBackgroundResource(R.drawable.custom_select_item2)
+        txv_chuyen_khoa.elevation = 10F
         container_tab.setBackgroundResource(R.drawable.border_sub_layout_page_dich_vu)
-        view_page.apply {
+        rcv_specialty_or_service.apply {
             serviceAdapter.lPhoto = listServices.toMutableList()
             adapter = serviceAdapter
             layoutManager = LinearLayoutManager(requireContext())
         }
-
     }
 
     private fun listImage(): MutableList<Photo> {
@@ -124,7 +124,6 @@ class HomeFragment : BaseFragment() {
         list.add(Photo(id = R.mipmap.anh))
         list.add(Photo(id = R.mipmap.anh2))
         list.add(Photo(id = R.mipmap.anh3))
-
         return list
     }
 
@@ -135,39 +134,20 @@ class HomeFragment : BaseFragment() {
             val r = 1 - abs(positon)
             page.scaleY = 0.84F + r * 0.14F
         }
-        view_slide.setPageTransformer(transform)
-
-    }
-
-    private fun initAvatar() {
-        context?.getSharedPreferences("DATA", Context.MODE_PRIVATE)?.let {
-            val data = it.getString(Define.Database.User.DATA_USER, "").toString()
-            val dataObj = Gson().fromJson(data, Data::class.java)
-            Log.e(TAG, "initAvatar: $dataObj", )
-            dataObj?.let { data ->
-                Glide.with(requireContext()).load(Define.Link.LINK_IMG + data.avatar)
-                    .placeholder(R.mipmap.ic_launcher).into(img_avatar)
-                tv_name.text = data.name
-            }
-
-        }
-
-
+        vp_slider.setPageTransformer(transform)
     }
 
     private fun onPageChangeCallback() {
-        view_slide.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+        vp_slider.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 Handler().postDelayed({
                     if (position < listImage().size - 1) {
-                        view_slide.currentItem = view_slide.currentItem + 1
+                        vp_slider.currentItem = vp_slider.currentItem + 1
                     } else {
-                        view_slide.currentItem = 0
+                        vp_slider.currentItem = 0
                     }
                 }, 2500)
-
-
             }
 
             override fun onPageScrollStateChanged(state: Int) {
@@ -187,7 +167,7 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun changeColor() {
-        when (view_slide.currentItem) {
+        when (vp_slider.currentItem) {
             0 -> {
                 img_indicator1.setBackgroundResource(R.drawable.color_indicator)
                 img_indicator2.setBackgroundResource(R.drawable.color_indicator_unselected)
@@ -224,19 +204,16 @@ class HomeFragment : BaseFragment() {
     override fun <U> getListResponse(data: List<U>?) {
         if (data?.firstOrNull() is Specialty) {
             val result = data as List<Specialty>
-            Log.e(TAG, "aaaaa: $result")
             listSpecialty.addAll(result)
-            view_page.apply {
+            rcv_specialty_or_service.apply {
                 serviceAdapter.lPhoto = listSpecialty.toMutableList()
                 adapter = serviceAdapter
                 layoutManager = LinearLayoutManager(requireContext())
             }
         } else if (data?.firstOrNull() is Services) {
             val result = data as List<Services>
-            Log.e(TAG, "aaaaa: $result")
             listServices.addAll(result)
         }
-
     }
 
     override fun handleNetworkError(throwable: Throwable?, isShowDialog: Boolean) {

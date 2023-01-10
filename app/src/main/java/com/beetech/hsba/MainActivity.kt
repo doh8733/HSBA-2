@@ -11,6 +11,7 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.beetech.hsba.base.BaseActivity
+import com.beetech.hsba.base.adapter.EndlessLoadingRecyclerViewAdapter
 import com.beetech.hsba.ui.SplashFragment
 import com.beetech.hsba.ui.home.HomeFragment
 import com.beetech.hsba.ui.main.MainFragment
@@ -51,6 +52,8 @@ class MainActivity : BaseActivity() {
 
     override fun initData() {
     }
+
+
 ////and di statusbar voi navigationbar
 //    override fun onWindowFocusChanged(hasFocus: Boolean) {
 //        super.onWindowFocusChanged(hasFocus)

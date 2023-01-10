@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/color_bg"
     tools:context=".ui.medical_history.MedicalHistoryFragment">
-
 
     <ImageView
         android:id="@+id/img_back"
@@ -13,13 +13,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="26dp"
         android:src="@drawable/ic_baseline_arrow_back_ios_24"
-        app:layout_constraintEnd_toStartOf="@+id/textView3"
+        app:layout_constraintEnd_toStartOf="@+id/txv_title_lskb"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/txv_title_lskb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="26dp"
@@ -28,12 +28,12 @@
         android:textAlignment="center"
         android:textColor="@color/text_black"
         android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView3"
+        app:layout_constraintEnd_toStartOf="@+id/img_add"
         app:layout_constraintStart_toEndOf="@+id/img_back"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/img_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="26dp"
@@ -42,15 +42,17 @@
         android:tintMode="multiply"
         app:cornerRadius="78dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView3"
+        app:layout_constraintStart_toEndOf="@+id/txv_title_lskb"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.beetech.hsba.base.adapter.BaseRecyclerView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/endless_rc_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
+        app:layout_constraintTop_toBottomOf="@+id/img_add" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,14 +20,6 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".ui.home.HomeActivity"
-            android:exported="true">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-
-        </activity>
-        <activity
             android:name="com.beetech.hsba.MainActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize">

@@ -7,7 +7,8 @@
     <color name="splash">#FFCC40</color>
     <color name="tab_bg_selected2">#FFFCDC</color>
     <color name="tab_bg_select_item1">#FFD7D7</color>
-    <color name="selected" tools:ignore="ReferenceType">@drawable/color_indicator</color>
+    <color name="color_bg">#F2F2F2</color>
+
 
 
 

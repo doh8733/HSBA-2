@@ -55,6 +55,9 @@
 
 
     <string name="lich_su_kham">Lịch sử khám bệnh</string>
+    <string name="kqxn_mau">KQXN Máu</string>
+    <string name="anh">Ảnh</string>
+    <string name="file">File đính kèm</string>
 
 
 </resources>

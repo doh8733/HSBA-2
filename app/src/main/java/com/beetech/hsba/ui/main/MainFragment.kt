@@ -5,7 +5,7 @@ import android.view.MenuItem
 import androidx.viewpager2.widget.ViewPager2
 import com.beetech.hsba.R
 import com.beetech.hsba.base.BaseFragment
-import com.beetech.hsba.base.adapter.page.NavigatioPagerAdapter
+import com.beetech.hsba.adapter.NavigatioPagerAdapter
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.fragment_main.*
 

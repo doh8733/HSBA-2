@@ -1,4 +1,4 @@
-package com.beetech.hsba.base.adapter.page
+package com.beetech.hsba.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +11,7 @@ import com.beetech.hsba.utils.Define
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.item_chuyen_khoa.view.*
 
-class ServiceAdapter : RecyclerView.Adapter<ServiceAdapter.TabPageHolder>() {
+class ServiceAndSpecialtyAdapter : RecyclerView.Adapter<ServiceAndSpecialtyAdapter.TabPageHolder>() {
 
     var lPhoto = mutableListOf<Any>()
         set(value) {

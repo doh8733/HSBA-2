@@ -4,6 +4,13 @@ open class Define {
     object Link {
         val LINK_IMG = "http://hsba-v2.beetechdev.vn:1680/storage/"
     }
+    object KeyPrefs{
+        val DATA = "DATA"
+        val SESSION = "SESSION"
+        val DATA_SESSION = "DATA_SESSION"
+        val DATA_USER = "data_user"
+        val BEARER = "Bearer "
+    }
 
     open class Api {
         val CONTENT_TYPE = "Content-Type: application/json"
@@ -62,7 +69,6 @@ open class Define {
             val EMAIL = "email"
             val LOCATION = "location"
             val PASSWORD = "password"
-            val DATA_USER = "data_user"
         }
 
         object Repo {

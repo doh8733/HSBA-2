@@ -1,4 +1,4 @@
-package com.beetech.hsba.entity
+package com.beetech.hsba.entity.login
 
 import com.google.gson.annotations.SerializedName
 
